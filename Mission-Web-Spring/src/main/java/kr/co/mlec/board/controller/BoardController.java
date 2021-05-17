@@ -65,7 +65,7 @@ public class BoardController {
 	public String deleteByNo(@PathVariable("no") int no) {
 		service.deleteBoard(no);
 		
-		return "board/delete";
+		return "redirect:/board";
 		
 	}
 }
