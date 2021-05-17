@@ -100,9 +100,28 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void delete(int no) {
-		// TODO Auto-generated method stub
-
+	public void deleteBoard(int no) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = new ConnectionFactory().getConnection();
+			
+			StringBuilder sql = new StringBuilder();
+			sql.append("delete t_board ");
+			sql.append(" where no = ? ");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, no);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCClose.close(conn, pstmt);
+		}
 	}
 
 }

@@ -13,8 +13,8 @@
 		location.href = "${ pageContext.request.contextPath}/board"		
 	}
 	function goDelete() {
-		if(confirm('${param.no}번 게시글을 삭제할까요?')){
-			location.href = "delete.jsp?no=${param.no}"
+		if(confirm('${board.no}번 게시글을 삭제할까요?')){
+			location.href = "${pageContext.request.contextPath}/board/delete/${board.no}"
 		}
 		
 	}

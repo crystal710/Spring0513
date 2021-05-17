@@ -15,4 +15,9 @@ public interface BoardService {
 	 * 상세게시글 조회
 	 */
 	public BoardVO detailBoard(int no);
+	
+	/**
+	 * 게시판 삭제
+	 */
+	public void deleteBoard(int no);
 }

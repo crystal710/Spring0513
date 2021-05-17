@@ -27,6 +27,20 @@ public class MyProjectTest {
 	private BoardDAO dao;
 	
 	@Test
+	public void SERVICE_삭제서비스() throws Exception{
+		service.deleteBoard(3);
+		System.out.println("삭제완료");
+	}
+	
+	@Ignore
+	@Test
+	public void DAO_삭제서비스() throws Exception{
+		dao.deleteBoard(3);
+		System.out.println("삭제완료");
+	}
+	
+	@Ignore
+	@Test
 	public void SERVICE_상세페이지조회() throws Exception{
 		BoardVO board = service.detailBoard(3);
 		System.out.println(board);

@@ -60,4 +60,12 @@ public class BoardController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/board/delete/{no}")
+	public String deleteByNo(@PathVariable("no") int no) {
+		service.deleteBoard(no);
+		
+		return "board/delete";
+		
+	}
 }
