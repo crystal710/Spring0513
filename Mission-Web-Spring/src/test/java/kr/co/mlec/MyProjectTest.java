@@ -26,6 +26,16 @@ public class MyProjectTest {
 	@Autowired
 	private BoardDAO dao;
 	
+	
+	@Ignore
+	@Test
+	public void DAO_조회수증가테스트() throws Exception{
+		dao.updateViewCnt(5);
+		System.out.println("증가완료");
+	}
+	
+	
+	@Ignore
 	@Test
 	public void SERVICE_삭제서비스() throws Exception{
 		service.deleteBoard(3);
@@ -35,7 +45,7 @@ public class MyProjectTest {
 	@Ignore
 	@Test
 	public void DAO_삭제서비스() throws Exception{
-		dao.deleteBoard(3);
+		dao.delete(3);
 		System.out.println("삭제완료");
 	}
 	

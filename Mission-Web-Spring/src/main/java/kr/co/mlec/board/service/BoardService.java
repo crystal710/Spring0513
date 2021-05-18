@@ -20,4 +20,11 @@ public interface BoardService {
 	 * 게시판 삭제
 	 */
 	public void deleteBoard(int no);
+	
+	/**
+	 * 새글 등록
+	 */
+	public void insertBoard(BoardVO board);
+	
+	
 }

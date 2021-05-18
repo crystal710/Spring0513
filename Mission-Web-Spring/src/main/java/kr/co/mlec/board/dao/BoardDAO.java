@@ -30,5 +30,10 @@ public interface BoardDAO {
 	/**
 	 * 게시글 삭제 서비스
 	 */
-	public void deleteBoard(int no);
+	public void delete(int no);
+	
+	/**
+	 * 조회수 증가
+	 */
+	public void updateViewCnt(int no);
 }

@@ -11,6 +11,7 @@ import kr.co.mlec.board.vo.BoardVO;
 @Service
 public class BoardServiceImpl implements BoardService{
 
+
 	@Autowired
 	private BoardDAO boardDAO;
 	
@@ -22,14 +23,22 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public BoardVO detailBoard(int no) {
+		boardDAO.updateViewCnt(no);
 		BoardVO board = boardDAO.selectByNo(no);
 		return board;
 	}
 
 	@Override
-	public void deleteBoard(int no) {
-		boardDAO.deleteBoard(no);
+	public void insertBoard(BoardVO board) {
+		boardDAO.insert(board);
 	}
+	
+	@Override
+	public void deleteBoard(int no) {
+		boardDAO.delete(no);
+	}
+
+	
 
 
 

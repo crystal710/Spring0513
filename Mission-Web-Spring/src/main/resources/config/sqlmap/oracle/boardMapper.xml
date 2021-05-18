@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board.dao.BoardDAO">
+ 
+	 <!-- 전체게시글 조회 -->
+ 	<select resultType="BoardVO" id="selectAll">
+ 	select no, title, writer, 
+ 		case to_char(sysdate, 'yyyy-mm-dd')when to_char(reg_date, 'yyyy-mm-dd') 
+ 		then to_char(reg_date, 'hh:mm:ss')else to_char(reg_date, 'yyyy-mm-dd')end regDate,
+ 		 view_cnt viewCnt
+ 		 from t_board
+ 	order by no desc </select>
+
+	<!-- <select id="selectAll" resultType="BoardVO">
+	select no, title, writer, to_char(reg_date, 'yyyy-mm-dd') regDate
+	from t_board
+	order by no desc</select> -->
+ 	
+	 <!-- 상세게시글 조회 -->
+	 <select id="selectByNo" resultType="BoardVO" parameterType="int">
+	 	select no, title, writer,content, view_cnt as viewCnt, to_char(reg_date, 'yyyy-mm-dd') regDate
+	 		from t_board
+	 	  where no = #{no} 
+	 </select>
+	 
+	 <!-- 게시물 등록 -->
+	 <insert id="insert" parameterType="BoardVO">
+	 	insert into t_board(no, title, writer, content)
+	 		values(seq_t_board_no.nextval, #{title}, #{writer} , #{content})
+	 </insert>
+	 
+	 <!-- 게시글 삭제 -->
+	 <delete id="delete" parameterType="int">
+	 	delete t_board
+	 		where no = #{no}
+	 </delete>
+	 
+	 <!-- 게시글 수정 -->
+	 <update id="modify" parameterType="BoardVO">
+	 	update t_board
+	 		set title = #{title}, content = #{content}
+	 	  where no = #{no}
+	 </update>
+	 
+	 <!-- 조회수 증가 -->
+	 <update id="viewCnt" parameterType="int">
+	 	update t_board
+	 		set view_cnt = view_cnt+1
+	 	  where no = #{no}
+	 </update>
+ 
+</mapper>

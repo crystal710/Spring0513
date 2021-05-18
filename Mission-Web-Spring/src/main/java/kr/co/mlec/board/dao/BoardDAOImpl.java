@@ -12,7 +12,7 @@ import kr.co.mlec.board.util.ConnectionFactory;
 import kr.co.mlec.board.util.JDBCClose;
 import kr.co.mlec.board.vo.BoardVO;
 
-@Repository
+//@Repository
 public class BoardDAOImpl implements BoardDAO {
 
 	@Override
@@ -100,7 +100,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void deleteBoard(int no) {
+	public void delete(int no) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -122,6 +122,12 @@ public class BoardDAOImpl implements BoardDAO {
 		} finally {
 			JDBCClose.close(conn, pstmt);
 		}
+	}
+
+	@Override
+	public void updateViewCnt(int no) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

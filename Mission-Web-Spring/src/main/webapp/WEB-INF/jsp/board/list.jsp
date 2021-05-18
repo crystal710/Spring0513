@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/layout.css">
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/board.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function() {
@@ -62,7 +65,15 @@
 						<%-- <a onclick="goDetail(${ board.no })"> --%>
 						<a href = "javascript:goDetail(${board.no})">
 							<c:out value="${ board.title }" />
-						</a></td>
+						</a>
+						<span class="badge bg-info">${board.viewCnt }</span>
+						<c:if test="${ fn:length(board.regDate) eq 8 }">
+							<span class="badge bg-danger">new</span>
+						</c:if>
+						<c:if test="${board.viewCnt >=3 }">
+							<span class="badge bg-warning"><em>best</em></span>
+						</c:if>
+						</td>
 					<td>${ board.writer }</td>
 					<td>${ board.regDate }</td>
 				</tr>
