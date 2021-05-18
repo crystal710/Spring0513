@@ -1,5 +1,8 @@
 package kr.co.mlec.member.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +55,16 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/member")
+	public String list(HttpServletRequest request) {
+		
+		List<MemberVO> memberList = service.selectAllMember();
+		request.setAttribute("memberList", memberList);
+		
+		return "member/memberList";
+		
+	}
+	
+	
 }

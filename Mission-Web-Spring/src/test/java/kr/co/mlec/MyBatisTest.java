@@ -16,6 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.mlec.board.vo.BoardVO;
+import kr.co.mlec.member.vo.MemberVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
@@ -27,6 +28,7 @@ public class MyBatisTest {
 	@Autowired
 	private DataSource ds;
 	
+	
 	@Ignore
 	@Test
 	public void 조회수증가테스트() throws Exception{
@@ -34,6 +36,7 @@ public class MyBatisTest {
 		System.out.println("조회수 : " + a);
 	}
 	
+	@Ignore
 	@Test
 	public void 새글등록테스트() throws Exception{
 		BoardVO board = new BoardVO();

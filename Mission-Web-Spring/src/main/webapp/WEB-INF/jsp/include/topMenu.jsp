@@ -19,7 +19,7 @@
 		<td>
 			<nav>
 				<c:if test="${ userVO.type eq 'S' }">
-					회원관리 |
+				<a href="${pageContext.request.contextPath }/member">회원관리 </a>|
 				</c:if> 
 				<a href="${ pageContext.request.contextPath }/board">게시판</a> |
 				<c:choose> 

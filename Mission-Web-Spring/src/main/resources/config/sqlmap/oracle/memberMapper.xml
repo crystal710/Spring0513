@@ -10,6 +10,10 @@
  		  where id =#{id} and password =#{password}
  	</select>
  	
- 	
+ 	<!-- 전체회원 조회 -->
+ 	<select id="selectAll" resultType="MemberVO">
+ 		select id, name, type, to_char(reg_date,'yyyy-mm-dd') regDate
+ 			from t_member
+ 	</select>
 	 
 </mapper>
