@@ -1,4 +1,9 @@
 package kr.co.mlec.board.vo;
+
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
+
 /*
  	alt+shift+s 누른후 c 선택 :기본생성자
  			 		o선택 : 매개변수 가지는 생성자
@@ -8,8 +13,12 @@ package kr.co.mlec.board.vo;
  */
 public class BoardVO {
 	private int no;
+	@Length(min=2, max=100, message="최소 2글자이상 입력해주세요")
+	@NotBlank(message = "필수항목입니다")
 	private String title;
+	@NotBlank(message = "필수항목입니다")
 	private String writer;
+	@NotBlank(message = "필수항목입니다")
 	private String content;
 	private int viewCnt;
 	private String regDate;

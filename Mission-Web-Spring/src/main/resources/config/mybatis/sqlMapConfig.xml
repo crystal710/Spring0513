@@ -7,6 +7,7 @@
  	<typeAliases>
  		<typeAlias type="kr.co.mlec.board.vo.BoardVO" alias="BoardVO"/>
  		<typeAlias type="kr.co.mlec.member.vo.MemberVO" alias="MemberVO"/>
+ 		<typeAlias type="kr.co.mlec.reply.vo.ReplyVO" alias="ReplyVO"/>
  	</typeAliases>
  	
  	

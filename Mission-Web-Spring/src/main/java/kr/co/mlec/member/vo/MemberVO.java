@@ -2,29 +2,6 @@ package kr.co.mlec.member.vo;
 // alt+shift+s -> c, o, r, s 
 public class MemberVO {
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPost() {
-		return post;
-	}
-
-	public void setPost(String post) {
-		this.post = post;
-	}
-
-	public String getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
-	}
 
 	private String id;
 	private String name;
@@ -88,6 +65,30 @@ public class MemberVO {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getPost() {
+		return post;
+		
+	}
+	
+	public void setPost(String post) {
+		this.post = post;
+	}
+	
+	public String getRegDate() {
+		return regDate;
+	}
+	
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 
 	@Override

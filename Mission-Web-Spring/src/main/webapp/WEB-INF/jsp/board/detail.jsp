@@ -18,6 +18,61 @@
 		}
 		
 	}
+	
+	function getReplyList(){
+		
+		$('#replyList').empty()
+		
+		$.ajax({
+			url: '${pagerContext.request.contextPath}/reply/${board.no}'
+			, success : function(responseData){
+				let replyList = JSON.parse(responseData)
+				
+				for(let reply of replyList){
+					let data = '<hr>'
+					data += '<div>'
+					data += '<strong>' + reply.content+ '</strong>'
+					data += '(' + reply.writer + ')'
+					data += '&nbsp;&nbsp;&nbsp;' + reply.regDate
+					data += '</div>'
+					
+					$('#replyList').append(data)
+					
+				}
+				
+			}, error : function(){
+				alert('실패')	
+			}
+		})
+	}
+	
+	$(document).ready(function(){
+		getReplyList()
+	})
+	
+	$(document).ready(function(){
+		$('#replyBtn').click(function(){
+			let content = document.replyForm.content
+			let writer = document.replyForm.writer
+
+			$.ajax({
+				url: '${pageContext.request.contextPath}/reply'
+				,type: 'post'
+				, data: {
+					content: content.value
+					, writer : writer.value
+					, boardNo : ${board.no}
+				}, success: function(){
+					alert('댓글추가 성공')
+					getReplyList()
+					content.value=''
+					writer.value=''
+				}, error : function(){
+					alert('댓글추가 실패')
+				}
+			})
+		})
+	})
 </script>
 </head>
 <body>
@@ -60,6 +115,15 @@
 		<br><br>
 		<button onclick="goList()">목  록</button>
 		<button onclick="goDelete()">삭  제</button>
+		
+		<form name ="replyForm">
+			댓글 :<input type="text" name ="content" size="50">
+			이름 :<input type ="text" name ="writer" size="10">
+			<input type ="button" value="댓글추가" id="replyBtn">
+		</form>
+		
+		<div id="replyList" >
+		</div>
 		
 	</div>
 	</section>

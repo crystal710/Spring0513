@@ -15,24 +15,24 @@
 <script>
 	$(document).ready(function() {
 		$('#newBtn').click(function() {
-//			location.href = "${ pageContext.request.contextPath }/jsp/board/writeForm.jsp"
-			location.href = "writeForm.jsp"
+			location.href = "${ pageContext.request.contextPath }/board/write"
+			
 		})
 	}) 
 	
 	function goDetail(boardNo) {
-		location.href = "${ pageContext.request.contextPath}/board/" + boardNo;
-		/* location.href = "${ pageContext.request.contextPath}/board/detail?no=" + boardNo; */
-		/*
+/* 		location.href = "${ pageContext.request.contextPath}/board/" + boardNo; */
 		<c:if test="${ empty userVO}">
 			if(confirm('로그인 서비스가 필요합니다\n로그인 페이지로 이동할까요?')){
-				location.href= "${pageContext.request.contextPath}/jsp/login/login.jsp"
+				location.href= "${pageContext.request.contextPath}/login"
 			}
 		</c:if>
 		
 		<c:if test="${not empty userVO}">
-			location.href = "detail.jsp?no=" + boardNo
+			location.href = "${ pageContext.request.contextPath}/board/" + boardNo;
 		</c:if>
+		/* location.href = "${ pageContext.request.contextPath}/board/detail?no=" + boardNo; */
+		/*
 			*/
 	}
 </script>
@@ -70,7 +70,7 @@
 						<c:if test="${ fn:length(board.regDate) eq 8 }">
 							<span class="badge bg-danger">new</span>
 						</c:if>
-						<c:if test="${board.viewCnt >=3 }">
+						<c:if test="${board.viewCnt >=20 }">
 							<span class="badge bg-warning"><em>best</em></span>
 						</c:if>
 						</td>
@@ -81,7 +81,7 @@
 		</table>
 		<br><br>
 		<c:if test="${ not empty userVO }">
-			<button id="newBtn">새글등록</button>
+			<button type="button" class="btn btn-outline-primary" id="newBtn">새글등록</button>
 		</c:if>
 	</div>
 	</section>

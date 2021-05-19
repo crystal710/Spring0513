@@ -12,7 +12,7 @@
  	
  	<!-- 전체회원 조회 -->
  	<select id="selectAll" resultType="MemberVO">
- 		select id, name, type, to_char(reg_date,'yyyy-mm-dd') regDate
+ 		select id, name, type, to_char(reg_date,'yyyy-mm-dd') regDate, password
  			from t_member
  	</select>
 	 
