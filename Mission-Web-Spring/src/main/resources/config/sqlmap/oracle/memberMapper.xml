@@ -12,8 +12,14 @@
  	
  	<!-- 전체회원 조회 -->
  	<select id="selectAll" resultType="MemberVO">
- 		select id, name, type, to_char(reg_date,'yyyy-mm-dd') regDate, password
+ 		select id, name, type, to_char(reg_date,'yyyy-mm-dd') regDate, email_id || '@' || email_domain email
  			from t_member
  	</select>
+ 	
+ 	<!-- 회원가입 -->
+ 	<insert id= "insert" parameterType="MemberVO">
+ 		insert into t_member(id, password, name, email_id, email_domain)
+ 			values(#{id}, #{password} , #{name}, #{email_id}, #{email_domain} )
+ 	</insert> 
 	 
 </mapper>

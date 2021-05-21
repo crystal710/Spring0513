@@ -40,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void insertMember(MemberVO member) {
-		// TODO Auto-generated method stub
+		memberDAO.insert(member);
 		
 	}
 

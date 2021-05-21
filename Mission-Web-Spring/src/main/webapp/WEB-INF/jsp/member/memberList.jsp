@@ -31,7 +31,7 @@
 			<tr>
 				<th width="25%">아이디</th>
 				<th width= 25%>이름</th>
-				<th width="25%">비밀번호</th>
+				<th width="25%">이메일</th>
 				<th width="25%">가입일</th>
 			</tr>
 			<c:forEach items="${ memberList }" var="member">
@@ -42,7 +42,7 @@
 							<c:out value="${ member.name }" />
 						</a>
 					</td>
-					<td>${ member.password }</td>
+					<td>${ member.email }</td>
 					<td>${ member.regDate }</td>
 				</tr>
 			</c:forEach>

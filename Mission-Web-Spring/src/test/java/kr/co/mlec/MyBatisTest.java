@@ -28,6 +28,18 @@ public class MyBatisTest {
 	@Autowired
 	private DataSource ds;
 	
+	@Test
+	public void 회원가입테스트() throws Exception{
+		MemberVO member = new MemberVO();
+		member.setId("crystal");
+		member.setName("쑤쑤");
+		member.setPassword("1234");
+		member.setEmail_id("crystal");
+		member.setEmail_domain("mlec.com");
+		
+		sqlSession.insert("member.dao.MemberDAO.insert",member);
+	}
+	
 	
 	@Ignore
 	@Test

@@ -24,7 +24,7 @@
 				<a href="${ pageContext.request.contextPath }/board">게시판</a> |
 				<c:choose> 
 					<c:when test="${ empty userVO }">
-						회원가입 | 
+						<a href = "${ pageContext.request.contextPath }/memberInsert">회원가입</a> | 
 						<a href="${ pageContext.request.contextPath }/login">로그인</a> |
 				 	</c:when>
 				 	<c:otherwise>

@@ -7,6 +7,8 @@ public class MemberVO {
 	private String name;
 	private String password;
 	private String type;
+	private String email_domain;
+	private String email_id;
 	private String email;
 	private String post;
 	private String regDate;
@@ -35,6 +37,22 @@ public class MemberVO {
 		this.type = type;
 	}
 
+	
+	public String getEmail_domain() {
+		return email_domain;
+	}
+	
+	public void setEmail_domain(String email_domain) {
+		this.email_domain = email_domain;
+	}
+	
+	public String getEmail_id() {
+		return email_id;
+	}
+	
+	public void setEmail_id(String email_id) {
+		this.email_id = email_id;
+	}
 	public String getId() {
 		return id;
 	}
