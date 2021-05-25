@@ -1,13 +1,23 @@
 package kr.co.mlec.member.vo;
+
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
+
 // alt+shift+s -> c, o, r, s 
 public class MemberVO {
 
-
+	@NotBlank(message = "필수항목입니다")
 	private String id;
+	@NotBlank(message = "필수항목입니다")
 	private String name;
+	@NotBlank(message = "필수항목입니다")
+	@Length(min=3, max=10, message="최소 3글자이상 10글자 이하를 입력하세요")
 	private String password;
 	private String type;
+	@NotBlank(message = "필수항목입니다")
 	private String email_domain;
+	@NotBlank(message = "필수항목입니다")
 	private String email_id;
 	private String email;
 	private String post;
@@ -38,6 +48,15 @@ public class MemberVO {
 	}
 
 	
+	public MemberVO(String id, String name, String password, String email_domain, String email_id) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.email_domain = email_domain;
+		this.email_id = email_id;
+	}
+
 	public String getEmail_domain() {
 		return email_domain;
 	}
