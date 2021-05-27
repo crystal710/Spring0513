@@ -52,6 +52,12 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+	@Override
+	public int idChk(MemberVO member) {
+		int result = sqlSession.selectOne("member.dao.MemberDAO.idChk",member);
+		return result;
+	}
+
 	
 
 }

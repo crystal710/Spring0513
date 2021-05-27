@@ -36,4 +36,9 @@ public interface MemberDAO {
 	 * 회원 삭제 서비스
 	 */
 	public void delete(String id);
+	
+	/**
+	 * 아이디 중복검사
+	 */
+	public int idChk(MemberVO member);
 }

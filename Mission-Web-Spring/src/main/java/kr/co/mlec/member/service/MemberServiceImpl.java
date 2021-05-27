@@ -44,5 +44,11 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public int idChk(MemberVO member) {
+		int result = memberDAO.idChk(member);
+		return result;
+	}
+
 	
 }

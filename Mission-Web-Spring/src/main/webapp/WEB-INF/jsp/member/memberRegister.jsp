@@ -9,6 +9,26 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/layout.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css">
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+<script>
+ function checkID(){
+	 $.ajax({
+
+         url : "/member/idChk",
+         type : "post",
+         dataType : "json",
+         data : {"userId" : $("#userId").val()},
+         success : function(data){
+             if(data == 1){
+                 alert("중복된 아이디입니다.");
+             }else if(data == 0){
+                 $("#idChk").attr("value", "Y");
+                 alert("사용가능한 아이디입니다.");
+             }
+         }
+     })
+ }
+</script>
+
 </head>
 <body>
 	<header>
@@ -20,12 +40,13 @@
 			<h1>회원가입 폼</h1>
 			<hr>
 			<br>
-			<form:form method="post" modelAttribute="memberVO">
+			<form:form method="post" modelAttribute="MemberVO">
 				<table style="width: 100%">
 					<tr>
 						<th width="20%">아이디</th>
 						<td>
 							<form:input path="id"/><form:errors path="id"/>
+							<button type = "submit" id = "idChk" onclick="checkID">중복확인</button>
 						</td>
 					</tr>
 					<tr>
